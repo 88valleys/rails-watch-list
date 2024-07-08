@@ -2,10 +2,11 @@ class Bookmark < ApplicationRecord
   belongs_to :movie
   belongs_to :list
 
-  validates :comment, :movie, :list, presence: true
   validates :comment, length: { minimum: 6 }
 
-  # validates :id, uniqueness: { scope: [:list_id,:movie_id], message: "unique"}
+  # :movie_id specifies the field being validated. The uniqueness: {scope: :list_id, message: "is already in the list"}
+  # validation ensures that each movie can only appear once per list, preventing duplicate entries.
 
-  validates :movie, uniqueness: {scope: :list}
+  validates :movie_id, uniqueness: {scope: :list_id, message: "This movie is already in the list"}
+
 end
