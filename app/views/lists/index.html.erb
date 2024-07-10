@@ -1,17 +1,40 @@
-<div class="container mt-3">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
+  <%# <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container d-flex justify-content-center">
     <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
     <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
-  </div>
-</div>
+  <%= link_to "Make a new list", new_list_path, class: "btn btn-primary" %>
+    <%# <%= link_to "Add a movie", new_list_path, class: "btn btn-secondary" %>
 
+  <%# </div>
+</div> %>
+
+<!-- Hero -->
+<div class="p-5 text-center bg-image rounded-3" style="
+    background-image: url('https://northernvirginiamag.com/wp-content/uploads/2020/04/family-watching-movie-from-home.jpg');
+  ">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+        <h1 class="mb-3">Bookmark your favourite movies today!</h1>
+            <%= link_to "Create a new list", new_list_path, class: 'btn btn-outline-light btn-lg' %>
+
+        <a data-mdb-ripple-init class="btn btn-outline-light btn-lg" href="#!" role="button">Add a movie</a>
+
+      </div>
+    </div>
+</div>
+<!-- Hero -->
+<div class="container mt-3">
+
+  <h2>Your lists</h2>
   <ul>
     <% @lists.each do |list| %>
       <%= render list %>
     <% end %>
   </ul>
+
+  <h2>All movies</h2>
+
+  <h2>Trending movies</h2>
 
   <div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
@@ -28,7 +51,6 @@
 </div>
 
 
-  <%= link_to "New list!!", new_list_path, class: "btn btn-primary" %>
 
 
 </div>

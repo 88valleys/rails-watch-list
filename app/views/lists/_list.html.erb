@@ -1,10 +1,8 @@
-<div id="<%= dom_id list %>">
-
+<div id="<%= dom_id list %>" class="d-flex">
+<ul>
   <li>
-    <strong>List name:</strong>
-    <%= list.name %>
+    <h4><%= list.name %></h4>
     <%= link_to "Show this list", list, class: "btn btn-secondary" %>
-
   </li>
-
+</ul>
 </div>
