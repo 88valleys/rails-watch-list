@@ -1,56 +1,24 @@
-  <%# <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container d-flex justify-content-center">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-  <%= link_to "Make a new list", new_list_path, class: "btn btn-primary" %>
-    <%# <%= link_to "Add a movie", new_list_path, class: "btn btn-secondary" %>
-
-  <%# </div>
-</div> %>
-
-<!-- Hero -->
-<div class="p-5 text-center bg-image rounded-3" style="
-    background-image: url('https://northernvirginiamag.com/wp-content/uploads/2020/04/family-watching-movie-from-home.jpg');
-  ">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="text-white">
-        <h1 class="mb-3">Bookmark your favourite movies today!</h1>
-            <%= link_to "Create a new list", new_list_path, class: 'btn btn-outline-light btn-lg' %>
-
-        <a data-mdb-ripple-init class="btn btn-outline-light btn-lg" href="#!" role="button">Add a movie</a>
-
-      </div>
-    </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://northernvirginiamag.com/wp-content/uploads/2020/04/family-watching-movie-from-home.jpg);">
+  <div class="container">
+    <h1 class="mb-3">Bookmark your favourite movies today!</h1>
+    <%= link_to "Create a new list", new_list_path, class: 'btn btn-outline-light btn-lg' %>
+    <a data-mdb-ripple-init class="btn btn-outline-light btn-lg" href="#!" role="button">Add a movie</a>
 </div>
-<!-- Hero -->
+</div>
+
 <div class="container mt-3">
 
   <h2>Your lists</h2>
-  <ul>
-    <% @lists.each do |list| %>
-      <%= render list %>
-    <% end %>
-  </ul>
+    <div class="cards">
+      <%= render partial: 'list', collection: @lists, as: :list %>
+    </div>
 
   <h2>All movies</h2>
 
+    <div class="cards">
+<%= render partial: 'lists/movie', collection: @movies, as: :movie %>
+    </div>
+
   <h2>Trending movies</h2>
-
-  <div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
-  </div>
-</div>
-
-
-
 
 </div>

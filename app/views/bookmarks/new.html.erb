@@ -1,3 +1,4 @@
+<div class="container mt-3">
 <h1>Add a movie to the <%=@list.name %> list</h1>
 
 <%= simple_form_for([@list, @bookmark]) do |f| %>
@@ -5,3 +6,4 @@
   <%= f.association :movie, prompt: "Select a movie", input_html: {data: {controller: "tom-select"}} %>
   <%= f.submit class: "btn btn-flat" %>
 <% end %>
+</div>
