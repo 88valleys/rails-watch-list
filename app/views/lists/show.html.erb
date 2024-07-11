@@ -1,5 +1,8 @@
 
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+
+
+
   <div class="container">
     <h1><%= @list.name %></h1>
   <%= link_to 'Add a Movie', new_list_bookmark_path(@list), class: 'btn btn-primary' %>
@@ -12,65 +15,27 @@
 
     <% @list.movies.each do |movie| %>
       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-      <%= image_tag movie.poster_url, alt: movie.title %>
-      <%= movie.title %> <span> <%= movie.rating %></span>
-      <%= movie.overview %>
-      <%= bookmark.comment %>
-      <%= link_to "delete a movie", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %>
-        <div class="cards-trip">
+
+
+
+  <div class="cards">
     <div class="card-trip">
-    <%= image_tag movie.poster_url, alt: movie.title %>
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= movie.title %></h2>
-        <p><%= movie.overview %>
-      <%= bookmark.comment %></p>
-      </div>
-      <h2>       <%= link_to "delete a movie", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %>
-    <% end %>
-
-
-</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
-</div>
-
-    <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <%= image_tag movie.poster_url, alt: movie.title %>
   <div class="card-trip-infos">
     <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
+      <h2><%= movie.title %></h2>
+      <p><%= movie.overview %></p>
     </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
+    <h2 class="card-trip-pricing"><%= link_to "delete a movie", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></h2>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
 </div>
 
-    <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
-</div>
 
-    <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
-</div>
-</div>
 
+
+
+</div>
+   <% end %>
 
   </div>
